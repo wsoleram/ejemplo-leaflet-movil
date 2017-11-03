@@ -39,6 +39,10 @@
         attribution: '<a href="http://www.openstreetmap.org/">OpenStreetMap</a>'
       });
       osm.addTo(mapa);
+	    
+    var wmsLayer = L.tileLayer.wms('http://geos.snitcr.go.cr/be/IGN_5/wms?', {
+    layers: 'IGN_5:LimiteProvincial_5k'
+    }).addTo(map);
       
    
       // retorna un color con base en la cantidad de pobladores
@@ -79,7 +83,8 @@
       canton.addTo(mapa);
 	    
       var baseLayers = {
-	      "OpenStreetMap": osm
+	      "OpenStreetMap": osm,
+	      "provincias_snit":wmsLayer
       };
       
       var overlays = {
